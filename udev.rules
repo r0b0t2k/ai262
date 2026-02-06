@@ -1,0 +1,12 @@
+
+# Rules for Oryx web flashing and live training
+KERNEL=="hidraw*", ATTRS{idVendor}=="16c0", TAG+="uaccess"
+KERNEL=="hidraw*", ATTRS{idVendor}=="3297", TAG+="uaccess"
+
+# Legacy rules for live training over webusb (Not needed for firmware v21+)
+# Rule for all ZSA keyboards
+# SUBSYSTEM=="usb", ATTR{idVendor}=="3297", TAG+="uaccess"
+
+# Keymapp Flashing rules for the Voyager
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", TAG+="uaccess", SYMLINK+="ignition_dfu"
+
